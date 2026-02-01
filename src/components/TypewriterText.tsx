@@ -27,7 +27,7 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // 清理定时器
   const clearTimer = useCallback(() => {
@@ -109,3 +109,4 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
 };
 
 export default TypewriterText;
+
