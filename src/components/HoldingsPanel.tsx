@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, Sparkles, TrendingUp, TrendingDown, Inbox, Trash2, Upload, RefreshCw, Clock, ArrowRightLeft, Percent, Database, Check, X, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Sparkles, TrendingUp, TrendingDown, Inbox, Trash2, Upload, RefreshCw, Clock, ArrowRightLeft, Percent, Database, Check, CheckCircle2 } from 'lucide-react';
 import { SpotlightCard } from './SpotlightCard';
 import { DATA_SOURCES, getCurrentDataSource, setDataSource, type DataSourceType } from '../services/fundApi';
 import type { Holding } from '../types';
@@ -471,3 +471,4 @@ export const HoldingsPanel: React.FC<HoldingsPanelProps> = ({
 };
 
 export default HoldingsPanel;
+
