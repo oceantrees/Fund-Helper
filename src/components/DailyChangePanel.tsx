@@ -285,12 +285,12 @@ export const DailyChangePanel: React.FC<DailyChangePanelProps> = ({
     );
   }
 
-  const growth = 'growth' in selectedFund ? selectedFund.growth : 0;
-  const nav = 'nav' in selectedFund ? selectedFund.nav : 0;
-  const estimate = 'estimate' in selectedFund ? selectedFund.estimate : nav;
+  const growth = ('growth' in selectedFund ? selectedFund.growth : 0) ?? 0;
+  const nav = ('nav' in selectedFund ? selectedFund.nav : 0) ?? 0;
+  const estimate = ('estimate' in selectedFund ? selectedFund.estimate : nav) ?? nav;
   const updateTime = 'updateTime' in selectedFund ? selectedFund.updateTime : '--:--';
   const isPositive = (growth || 0) >= 0;
-  const changeAmount = nav > 0 && growth ? (nav * growth / 100) : 0;
+  const changeAmount = nav > 0 ? (nav * growth / 100) : 0;
 
   return (
     <div className="scroll-animate" style={{ transitionDelay: '0.1s' }}>
@@ -380,3 +380,4 @@ export const DailyChangePanel: React.FC<DailyChangePanelProps> = ({
 };
 
 export default DailyChangePanel;
+
