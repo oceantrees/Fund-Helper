@@ -1325,8 +1325,8 @@ const fetchHoldingsFromPingzhong = async (fundCode: string): Promise<FundHolding
     // 等待一小段时间确保数据加载完成
     await new Promise(resolve => setTimeout(resolve, 100));
     
-    const stocksData = window.Data_fundStocks;
-    if (stocksData && Array.isArray(stocksData) && stocksData.length > 0) {
+    const stocksData = (window.Data_fundStocks ?? []) as NonNullable<Window['Data_fundStocks']>;
+    if (stocksData.length > 0) {
       console.log(`[Holdings] pingzhongdata成功: ${fundCode}, 数量: ${stocksData.length}`);
       return stocksData.slice(0, 10).map((item: { GPDM: string; GPJC: string; JZBL: string; INDEXNAME?: string; PCTNVCHG?: string }) => ({
         code: item.GPDM || '',
@@ -1508,3 +1508,4 @@ export const calculateHoldingsEstimate = async (fundCode: string, baseNav: numbe
     holdings: updatedHoldings,
   };
 };
+
